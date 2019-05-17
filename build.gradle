@@ -1,0 +1,24 @@
+plugins {
+    id "java-gradle-plugin"
+    id "groovy"
+    id "com.gradle.plugin-publish" version "0.10.0"
+}
+
+version = "0.1.0"
+
+gradlePlugin {
+    plugins {
+        mstrPluginsPlugin {
+            id = "net.dreamshake.mstr-plugins"
+            displayName = "Plugin for building MicroStrategy Web custom plugins"
+            description = "A plugin that helps you compile and package MicroStrategy Web custom plugins"
+            implementationClass = "net.dreamshake.gradle.plugins.MicroStrategyWebPluginsPlugin"
+        }
+    }
+}
+
+pluginBundle {
+    website = "https://github.com/mstr-automation" 
+    vcsUrl = "https://github.com/mstr-automation/gradle-mstr-plugins"
+    tags = ["#mstr", "#microstrategy"]
+}

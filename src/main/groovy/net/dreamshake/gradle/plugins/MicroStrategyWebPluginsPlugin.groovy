@@ -2,6 +2,7 @@ package net.dreamshake.gradle.plugins
 
 import org.gradle.api.Project
 import org.gradle.api.Plugin
+import org.gradle.api.plugins.WarPlugin
 import org.gradle.api.Task
 import org.gradle.api.tasks.bundling.War
 
@@ -12,8 +13,13 @@ class MicroStrategyWebPluginsPlugin implements Plugin<Project> {
         project.tasks.withType(War.class) { War warTask ->
             warTask.archiveExtension.set("zip")
             warTask.into({ mstrPlugin.folder })
+            warTask.manifest({
+                attributes [
+                    'plugin-version': project.version
+                ]
+            })
         }
         Task aliasTask = project.tasks.create("pluginZip")
-        aliasTask.dependsOn(War.TASK_NAME)
+        aliasTask.dependsOn(WarPlugin.WAR_TASK_NAME)
     }
 }

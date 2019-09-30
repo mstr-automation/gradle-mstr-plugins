@@ -13,10 +13,11 @@ class MicroStrategyWebPluginsPlugin implements Plugin<Project> {
         project.tasks.withType(War.class) { War warTask ->
             warTask.archiveExtension.set("zip")
             warTask.into({ mstrPlugin.folder })
+            warTask.from({ mstrPlugin.from })
             warTask.manifest({
-                attributes [
+                attributes([
                     'plugin-version': project.version
-                ]
+                ])
             })
         }
         Task aliasTask = project.tasks.create("pluginZip")

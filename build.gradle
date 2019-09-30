@@ -1,10 +1,10 @@
 plugins {
     id "java-gradle-plugin"
     id "groovy"
-    id "com.gradle.plugin-publish" version "0.10.0"
+    id "com.gradle.plugin-publish" version "0.10.1"
 }
 
-version = "0.1.0"
+version = "0.1.2"
 
 gradlePlugin {
     plugins {
@@ -20,5 +20,5 @@ gradlePlugin {
 pluginBundle {
     website = "https://github.com/mstr-automation" 
     vcsUrl = "https://github.com/mstr-automation/gradle-mstr-plugins"
-    tags = ["#mstr", "#microstrategy"]
+    tags = ["mstr", "microstrategy"]
 }

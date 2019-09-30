@@ -14,6 +14,7 @@ class MicroStrategyWebPluginsPlugin implements Plugin<Project> {
             warTask.archiveExtension.set("zip")
             warTask.into({ mstrPlugin.folder })
             warTask.from({ mstrPlugin.from })
+            warTask.dependsOn({ mstrPlugin.dependsOn })
             warTask.manifest({
                 attributes([
                     'plugin-version': project.version
